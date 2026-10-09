@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="《黑暗帝国的统治》13张拼装卡牌交互模拟器">
+  <title>拼装模拟器 · 黑暗帝国的统治</title>
+  <link rel="stylesheet" href="styles.css?v=keyword-spacing-1">
+</head>
+<body>
+  <div class="shell">
+    <header class="masthead">
+      <div class="brand"><span class="brand-gem">✦</span><div><small>黑暗帝国的统治</small><strong>拼装模拟器</strong></div></div>
+    </header>
+
+    <main>
+      <section class="intro">
+        <h1>拼装：随机获取一张随从牌，改变它的一半文本。</h1>
+      </section>
+
+      <div class="workspace">
+        <aside class="source-panel panel">
+          <div class="panel-title"><span class="step">01</span><div><h2>选择进行拼装的卡牌</h2></div></div>
+          <select id="source-select-mobile" class="mobile-source" aria-label="选择进行拼装的卡牌"></select>
+          <div id="source-list" class="source-list" role="list"></div>
+        </aside>
+
+        <section class="simulator panel" aria-label="拼装操作台">
+          <div class="sim-head">
+            <div><span class="step">02</span><span class="sim-kicker">拼装操作台</span><h2 id="current-source">加载中…</h2><p id="source-effect"></p></div>
+            <div class="sim-controls"><span id="class-label" class="class-label">玩家职业</span><select id="class-select" aria-label="玩家职业"></select><span id="fixed-class" class="fixed-class" hidden></span><button id="reroll" class="gold-button" type="button">⟳ 重新拼装</button></div>
+          </div>
+
+          <div id="pool-stats" class="pool-stats"></div>
+          <div id="notice" class="notice" role="status" hidden></div>
+          <div class="assembly-stage">
+            <div class="stage-label label-left">组件 · 选一段描述</div>
+            <div class="stage-label label-center">主体 · 原型</div>
+            <div class="stage-label label-right">组件 · 选一段描述</div>
+            <div id="left-card" class="stage-slot"></div>
+            <div id="primary-card" class="stage-slot primary-slot"></div>
+            <div id="right-card" class="stage-slot"></div>
+          </div>
+          <div class="stage-footer"><span>点击左右组件的文字片段完成拼装</span><button id="keep-original" class="text-button" type="button">还原</button></div>
+        </section>
+      </div>
+
+      <section id="result-section" class="result-panel panel" hidden>
+        <div class="panel-title"><span class="step">03</span><div><small>本次拼装结果</small><h2 id="result-heading">你的新随从</h2></div></div>
+        <div id="result-content" class="result-content"></div>
+        <div class="result-actions"><button id="copy-result" class="gold-button" type="button">复制结果</button><button id="again" class="outline-button" type="button">再拼一次</button></div>
+      </section>
+
+      <section class="method panel">
+        <div><h2>规则与数据</h2></div>
+        <div class="method-grid">
+          <p><b>组件</b><br>可能是随从、法术、武器甚至英雄牌。默认来自玩家职业与中立，费用默认为主体的原费用或至多高2费；9/10费主体可搭配8费组件。</p>
+          <p><b>其他</b><br>拉夏使用14张牌的专属池，结果会变为被动英雄技能。已去除部分无意义的组合，包括亡语获得属性值；模拟结果依旧不一定100%准确。</p>
+        </div>
+      </section>
+    </main>
+  </div>
+  <script src="data.js"></script>
+  <script src="engine.js"></script>
+  <script src="app.js?v=result-notes-1"></script>
+</body>
+</html>

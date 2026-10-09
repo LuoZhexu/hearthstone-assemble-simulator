@@ -1,0 +1,7 @@
+__pycache__/
+*.py[cod]
+.extract-deps/
+tmpti2kyrno/
+.env
+.env.*
+*.log
